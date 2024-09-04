@@ -1,0 +1,40 @@
+﻿@model BasicMVCPractice.Models.CustomerOrderViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Orders</title>
+</head>
+<body>
+    <h1>Customer Information</h1>
+    @*Müşteri bilgilerini (ID, adı, soyadı, e-posta) görüntüleyin.*@
+    <p><strong>ID:</strong> @Model.Customer.Id</p>
+    <p><strong>Name:</strong> @Model.Customer.FirstName </p>
+    <p><strong>Last Name:</strong> @Model.Customer.LastName</p>
+    <p><strong>Email:</strong> @Model.Customer.Email</p>
+
+    <h2>Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID &nbsp;</th>
+                <th>Product Name &nbsp;</th>
+                <th>Amount &nbsp;</th>
+                <th>Quantity &nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.ProductName</td>
+                    <td>@order.Price.ToString("C")</td>
+                    <td>@order.Quantity </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
